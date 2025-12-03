@@ -1,0 +1,1033 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>鑫麦多农场溯源 - 首页</title>
+    <style>
+        /* 基础样式优化 */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: "Microsoft YaHei", "微软雅黑", Arial, sans-serif;
+            color: #333;
+            background-color: #f5f9f0;
+            line-height: 1.8;
+            padding-top: 20px;
+            background-image: url("./image/bg.jpg");
+            background-attachment: fixed;
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            min-height: 100vh;
+            position: relative;
+        }
+
+       
+        
+        .container {
+            width: 92%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /* 导航栏美化升级 */
+        .nav {
+            background-color: rgba(85, 139, 47, 0.98);
+            padding: 22px 0;
+            margin-bottom: 45px;
+            border-radius: 16px;
+            box-shadow: 0 8px 24px rgba(85,139,47,0.25);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .nav::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M11 18c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm48 25c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm-43-7c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm63 31c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM34 90c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm56-76c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM12 86c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm28-65c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm23-11c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-6 60c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm29 22c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zM32 63c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm57-13c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-9-21c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM60 91c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM35 41c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM12 60c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2z' fill='%23ffffff' fill-opacity='0.12' fill-rule='evenodd'/%3E%3C/svg%3E");
+            opacity: 0.15;
+        }
+        
+        .nav h1 {
+            color: white;
+            text-align: center;
+            margin: 0 0 18px 0;
+            font-size: 32px;
+            font-weight: 600;
+            text-shadow: 0 3px 6px rgba(0,0,0,0.18);
+            letter-spacing: 1px;
+        }
+        
+        .nav-links {
+            text-align: center;
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+        
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            margin: 0 15px;
+            font-size: 18px;
+            font-weight: 500;
+            padding: 8px 20px;
+            border-radius: 30px;
+            transition: all 0.3s ease;
+            position: relative;
+            background-color: rgba(255,255,255,0.08);
+        }
+        
+        .nav-links a::after {
+            content: "";
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 0;
+            height: 2px;
+            background-color: #e8f5e9;
+            transition: width 0.3s ease;
+        }
+        
+        .nav-links a:hover {
+            background-color: rgba(255,255,255,0.18);
+            transform: translateY(-2px);
+        }
+        
+        .nav-links a:hover::after {
+            width: 70%;
+        }
+        
+        /* 章节样式美化 */
+        .section {
+            background-color: rgba(255, 255, 255, 0.96);
+            padding: 40px;
+            margin-bottom: 45px;
+            border-radius: 16px;
+            border: 1px solid #f0f9e8;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+            transition: transform 0.4s ease, box-shadow 0.4s ease;
+            backdrop-filter: blur(8px);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        /* 章节顶部装饰线 */
+        .section::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 6px;
+            background: linear-gradient(90deg, #6a994e, #a5d6a7, #6a994e);
+        }
+        
+        /* 基地考察章节专属背景优化 */
+        #farm-visit.section {
+            background-image: 
+                linear-gradient(rgba(255, 255, 255, 0.97), rgba(255, 255, 255, 0.97)),
+                url("./image/farm-visit-background.jpg");
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-attachment: local;
+        }
+        
+        .section:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 15px 35px rgba(0,0,0,0.09);
+        }
+        
+        .section h2 {
+            color: #43682b;
+            border-bottom: 3px solid #e8f5e9;
+            padding-bottom: 15px;
+            margin-top: 0;
+            margin-bottom: 35px;
+            text-align: center;
+            font-size: 28px;
+            font-weight: 600;
+            position: relative;
+        }
+        
+        .section h2::after {
+            content: "";
+            position: absolute;
+            bottom: -3px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 3px;
+            background-color: #6a994e;
+            border-radius: 3px;
+        }
+        
+        .section h3 {
+            color: #558b2f;
+            text-align: center;
+            margin: 30px 0 35px 0;
+            font-size: 24px;
+            font-weight: 500;
+            position: relative;
+            padding-bottom: 10px;
+        }
+        
+        .section h3::after {
+            content: "";
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 60px;
+            height: 2px;
+            background-color: #a5d6a7;
+            border-radius: 2px;
+        }
+        
+        /* 图片区域美化升级 */
+        .img-area {
+            border: 2px dashed #a5d6a7;
+            background-color: rgba(241, 248, 233, 0.95);
+            padding: 25px;
+            text-align: center;
+            margin: 20px 0;
+            color: #558b2f;
+            width: 100%;
+            border-radius: 12px;
+            transition: all 0.4s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .img-area::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(165,214,167,0.1), transparent);
+            transition: left 0.8s ease;
+        }
+        
+        .img-area:hover {
+            border-color: #6a994e;
+            background-color: rgba(232, 245, 233, 0.98);
+            box-shadow: 0 8px 20px rgba(165,214,167,0.25);
+        }
+        
+        .img-area:hover::before {
+            left: 100%;
+        }
+        
+        .img-area img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 10px;
+            margin-top: 15px;
+            transition: transform 0.6s ease, box-shadow 0.4s ease;
+            box-shadow: 0 6px 16px rgba(0,0,0,0.12);
+            border: 4px solid white;
+            object-fit: cover;
+        }
+        
+        .img-area:hover img {
+            transform: scale(1.05);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.18);
+        }
+        
+        /* 网格布局优化 */
+        .grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 30px;
+            margin: 20px 0;
+            justify-content: center;
+        }
+        
+        .grid-item {
+            flex: 1;
+            min-width: 280px;
+            text-align: center;
+            padding: 25px;
+            background-color: rgba(249, 253, 244, 0.98);
+            border-radius: 14px;
+            border: 1px solid #f0f9e8;
+            transition: all 0.4s ease;
+            position: relative;
+        }
+        
+        .grid-item::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background-color: #a5d6a7;
+            border-radius: 4px 4px 0 0;
+            transition: background-color 0.3s ease;
+        }
+        
+        .grid-item:hover {
+            background-color: rgba(240, 249, 232, 0.98);
+            transform: translateY(-6px);
+            box-shadow: 0 12px 28px rgba(106,153,78,0.12);
+        }
+        
+        .grid-item:hover::before {
+            background-color: #6a994e;
+        }
+        
+        /* 资质认证专用网格 */
+        .cert-grid-row {
+            margin: 40px 0;
+        }
+        
+        .cert-grid-row .grid-item {
+            background-color: rgba(255, 255, 255, 0.98);
+            padding: 25px;
+            border: 1px solid #f0f9e8;
+        }
+        
+        .cert-grid-row .grid-item p {
+            margin-top: 20px;
+            color: #43682b;
+            font-size: 17px;
+            transition: color 0.3s ease;
+            font-weight: 500;
+        }
+        
+        .cert-grid-row .grid-item:hover p {
+            color: #2e501e;
+            transform: scale(1.03);
+            display: inline-block;
+        }
+        
+        /* 基地考察专用样式 */
+        .farm-intro {
+            background-color: rgba(245, 249, 240, 0.98);
+            border-radius: 14px;
+            padding: 30px;
+            margin: 30px 0;
+            border-left: 5px solid #6a994e;
+            box-shadow: 0 6px 18px rgba(0,0,0,0.04);
+            transition: all 0.3s ease;
+        }
+        
+        .farm-intro:hover {
+            transform: translateX(5px);
+            box-shadow: 0 8px 22px rgba(0,0,0,0.06);
+        }
+        
+        .farm-intro h4 {
+            color: #43682b;
+            font-size: 20px;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            font-weight: 600;
+        }
+        
+        .farm-intro h4::before {
+            content: "🌱";
+            margin-right: 12px;
+            font-size: 24px;
+        }
+        
+        .farm-gallery {
+            margin: 40px 0;
+        }
+        
+        .gallery-row {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 25px;
+            margin-bottom: 30px;
+            justify-content: center;
+        }
+        
+        .gallery-item {
+            flex: 1;
+            min-width: 250px;
+            max-width: 350px;
+            background-color: white;
+            border-radius: 12px;
+            padding: 15px;
+            box-shadow: 0 6px 16px rgba(0,0,0,0.05);
+            transition: transform 0.3s ease;
+        }
+        
+        .gallery-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 22px rgba(0,0,0,0.08);
+        }
+        
+        .gallery-item p {
+            margin-top: 15px;
+            color: #558b2f;
+            font-size: 16px;
+            line-height: 1.6;
+            text-align: center !important;
+        }
+        
+        /* 列表样式美化 */
+        ul {
+            line-height: 2.2;
+            padding-left: 30px;
+            text-align: left;
+            color: #444;
+            font-size: 16px;
+        }
+        
+        ul li {
+            margin-bottom: 12px;
+            position: relative;
+            padding-left: 15px;
+            transition: transform 0.2s ease;
+        }
+        
+        ul li::before {
+            content: "•";
+            position: absolute;
+            left: -18px;
+            color: #6a994e;
+            font-weight: bold;
+            font-size: 20px;
+        }
+        
+        ul li:hover {
+            transform: translateX(5px);
+            color: #2e501e;
+        }
+        
+        /* 段落样式美化 */
+        p {
+            text-align: left;
+            color: #444;
+            font-size: 16px;
+            line-height: 1.9;
+            margin: 20px 0;
+            padding: 0 15px;
+            text-shadow: 0 0 1px rgba(0,0,0,0.03);
+        }
+        
+        /* 左图右文布局优化 */
+        .text-img-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 35px;
+            align-items: center;
+            margin: 30px 0;
+        }
+        
+        .text-img-container .img-col {
+            flex: 1;
+            min-width: 320px;
+        }
+        
+        .text-img-container .text-col {
+            flex: 1;
+            min-width: 320px;
+            text-align: left;
+            padding: 0 15px;
+        }
+        
+        .text-img-container .text-col h4 {
+            color: #558b2f;
+            margin-bottom: 20px;
+            font-size: 20px;
+            font-weight: 600;
+            position: relative;
+            padding-bottom: 10px;
+        }
+        
+        .text-img-container .text-col h4::after {
+            content: "";
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 60px;
+            height: 2px;
+            background-color: #a5d6a7;
+        }
+        
+        /* 页脚美化升级 */
+        .footer {
+            background-color: rgba(67, 104, 43, 0.98);
+            color: white;
+            text-align: center;
+            padding: 40px 20px;
+            margin-top: 60px;
+            border-radius: 16px;
+            box-shadow: 0 -8px 24px rgba(67,104,43,0.25);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .footer::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M11 18c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm48 25c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm-43-7c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm63 31c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM34 90c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm56-76c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM12 86c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm28-65c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm23-11c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-6 60c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm29 22c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zM32 63c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm57-13c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-9-21c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM60 91c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM35 41c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM12 60c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2z' fill='%23ffffff' fill-opacity='0.12' fill-rule='evenodd'/%3E%3C/svg%3E");
+            opacity: 0.15;
+        }
+        
+        .footer p {
+            text-align: center;
+            margin: 12px 0;
+            color: #f0f9e8;
+            font-size: 17px;
+            text-shadow: 0 1px 3px rgba(0,0,0,0.2);
+            padding: 0;
+        }
+        
+        .footer p:first-child {
+            font-size: 22px;
+            font-weight: 600;
+            color: white;
+            margin-bottom: 15px;
+            letter-spacing: 1px;
+        }
+        
+        .footer .copyright {
+            margin-top: 25px;
+            font-size: 15px;
+            color: #e8f5e9;
+            opacity: 0.8;
+        }
+        
+        /* 响应式优化增强 */
+        @media (max-width: 768px) {
+            .nav h1 {
+                font-size: 26px;
+            }
+            
+            .nav-links a {
+                margin: 0 8px 10px;
+                font-size: 16px;
+                padding: 7px 16px;
+            }
+            
+            .section {
+                padding: 25px;
+            }
+            
+            .section h2 {
+                font-size: 24px;
+                margin-bottom: 25px;
+            }
+            
+            .section h3 {
+                font-size: 20px;
+                margin: 25px 0;
+            }
+            
+            .grid {
+                gap: 20px;
+            }
+            
+            .grid-item {
+                min-width: 100%;
+                padding: 20px;
+            }
+            
+            .cert-grid-row {
+                margin: 25px 0;
+            }
+            
+            .gallery-item {
+                min-width: 100%;
+                max-width: 100%;
+            }
+            
+            .text-img-container {
+                gap: 25px;
+            }
+            
+            .farm-intro {
+                padding: 20px;
+            }
+            
+            .footer {
+                padding: 30px 15px;
+            }
+            
+            .footer p:first-child {
+                font-size: 20px;
+            }
+        }
+        
+        /* 滚动动画优化 */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(40px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .section {
+            animation: fadeInUp 0.8s ease forwards;
+            opacity: 0;
+        }
+        
+        .section:nth-child(2) { animation-delay: 0.1s; }
+        .section:nth-child(3) { animation-delay: 0.3s; }
+        .section:nth-child(4) { animation-delay: 0.5s; }
+        .section:nth-child(5) { animation-delay: 0.7s; }
+        
+        /* 图片加载动画 */
+        .img-area img {
+            opacity: 0;
+            animation: imgFadeIn 0.6s ease forwards;
+            animation-delay: 0.2s;
+        }
+        
+        @keyframes imgFadeIn {
+            from { opacity: 0; transform: scale(0.95); }
+            to { opacity: 1; transform: scale(1); }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- 导航栏 -->
+        <div class="nav">
+            <h1>鑫麦多农场溯源系统</h1>
+            <div class="nav-links">
+                <a href="#home">首页</a>
+                <a href="#inspection">实地考察</a>
+                <a href="#farm-visit">基地考察</a>
+                <a href="#advantages">栽培优点</a>
+            </div>
+        </div>
+
+        <!-- 首页 -->
+        <div id="home" class="section">
+            <h2>首页 - 资质认证与农场实景</h2>
+            
+            <h3>资质认证</h3>
+            
+            <!-- 第一行证书 -->
+            <div class="grid cert-grid-row">
+                <div class="grid-item" style="max-width: 550px;">
+                    <div class="img-area">
+                        绿色食品证书
+                        <img src="./image/证书.jpg" alt="绿色食品证书">
+                    </div>
+                    <p>绿色食品证书</p>
+                </div>
+            </div>
+            
+            <!-- 第二行营业执照 -->
+            <div class="grid cert-grid-row">
+                <div class="grid-item" style="max-width: 550px;">
+                    <div class="img-area">
+                        营业执照
+                        <img src="./image/营业执照.jpg" alt="营业执照">
+                    </div>
+                    <p>营业执照</p>
+                </div>
+            </div>
+            
+            <!-- 第三行：2个证书 -->
+            <div class="grid cert-grid-row">
+                <div class="grid-item">
+                    <div class="img-area">
+                        国家级生态农场证书
+                        <img src="./image/国家级生态农场.jpg" alt="国家级生态农场证书">
+                    </div>
+                    <p>国家级生态农场证书</p>
+                </div>
+                <div class="grid-item">
+                    <div class="img-area">
+                        科学技术成果证书
+                        <img src="./image/科学技术成果证书.jpg" alt="科学技术成果证书">
+                    </div>
+                    <p>科学技术成果证书</p>
+                </div>
+            </div>
+            
+            <h3>公司考察实景</h3>
+            <div class="grid">
+                <div class="grid-item">
+                    <div class="img-area">
+                        鑫麦多公司实地考察
+                        <img src="./11.9汤阴拍摄（合同，大棚）/基地学习.JPG" alt="基地学习">
+                    </div>
+                </div>
+                <div class="grid-item">
+                    <div class="img-area">
+                        鑫麦多公司实地考察
+                        <img src="./11.9汤阴拍摄（合同，大棚）/IMG_1469.JPG" alt="农场实景2">
+                    </div>
+                </div>
+                <div class="grid-item">
+                    <div class="img-area">
+                        鑫麦多公司实地考察
+                        <img src="./11.9汤阴拍摄（合同，大棚）/IMG_1481.JPG" alt="农场实景3">
+                    </div>
+                </div>
+                
+                <!-- 左图右文：公司大门及园区概况 -->
+                <div class="grid-item" style="min-width: 100%; margin-top: 20px;">
+                    <div class="text-img-container">
+                        <!-- 左侧图片区域 -->
+                        <div class="img-col">
+                            <div class="img-area">
+                                鑫麦多公司实地考察
+                                <img src="./11.9汤阴拍摄（合同，大棚）/公司大门.JPG" alt="公司大门">
+                            </div>
+                        </div>
+                        <!-- 右侧文字介绍 -->
+                        <div class="text-col">
+                            <h4>公司大门及园区概况</h4>
+                            <p>
+                                鑫麦多生态农场总部大门位于河南省安阳市汤阴县生态农业园区核心位置，园区总占地面积1500亩，交通便利，环境优美。
+                            </p>
+                            <p>
+                                麦多生态农业科技有限公司坐落于河南汤阴县五陵镇，自2013年创建以来，以独特BOO生态循环模式引领当地农业绿色高效发展。公司500亩基地设施完善，拥有7000立方米沼气工程及育苗温室等设施，构建种植、养殖、沼气生产等一体化产业链。依托沼渣沼液无土栽培技术，全程无化肥农药，农产品品质出众，西红柿维C含量为普通品种1.8倍，白菜多项营养指标高出10%~40%。
+                            </p>
+                            <p>
+                                园区严格执行国家级生态农场标准，绿化率达40%以上，形成了"种植-养殖-有机肥-再种植"的生态循环体系，是集现代农业生产、技术研发、科普教育于一体的综合性生态农场。
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 实地考察页 - 合同签订 -->
+        <div id="inspection" class="section">
+            <h2>合同签订</h2>
+            
+            <div class="grid">
+                <div class="grid-item" style="min-width: 100%;">
+                    <h3>公司考察与合同签订</h3>
+                    <div class="text-img-container">
+                        <!-- 左侧图片区域 -->
+                        <div class="img-col">
+                            <div class="img-area">
+                                鑫麦多公司合同签订
+                                <img src="./11.9汤阴拍摄（合同，大棚）/合同签订4.JPG" alt="合同签订">
+                            </div>
+                            <div class="img-area" style="margin-top: 20px;">
+                                鑫麦多公司合同签订
+                                <img src="./11.9汤阴拍摄（合同，大棚）/合同签订2.JPG" alt="合同签订2">
+                            </div>
+                        </div>
+                        <!-- 右侧文字介绍 -->
+                        <div class="text-col">
+                            <h4>规范签约 · 共赢保障</h4>
+                            <p>
+                                为保障合作双方权益，合同签订环节严格遵循公平、透明、规范原则。合作前，我方将组织专业团队对合作企业的生产资质、技术实力、质量管理体系及溯源能力进行全维度实地核查，确保企业符合绿色农业合作标准。
+                            </p>
+                            <p>
+                                核查通过后，双方就产品质量参数、溯源信息公示要求、交货周期、物流保障、售后责任划分等核心条款进行细致磋商，所有约定均以书面形式明确载入合同。
+                            </p>
+                            <p>
+                                合同文本经法律顾问审核，明确双方权利义务，对产品抽检标准、违约赔付机制等关键内容作出清晰界定，从法律层面为合作全程保驾护航，实现供需双方长期稳定的共赢发展。
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+                
+        <!-- 基地考察部分 -->
+        <div id="farm-visit" class="section">
+            <h2>基地深度考察</h2>
+            
+            <div class="farm-intro">
+                <h4>农场概况</h4>
+                <p>鑫麦多农场总占地面积1500亩，其中包括现代化智能温室大棚，露天生态种植区。农场严格遵循国家级生态农场标准建设，采用"生态循环、绿色防控、精准种植"的现代农业管理模式，实现了从种植到采收的全流程标准化管理。</p>
+            </div>
+            
+            <h3>农场实景全景展示</h3>
+            <div class="farm-gallery">
+                <!-- 第一行图片 -->
+                <div class="gallery-row">
+                    <div class="gallery-item">
+                        <div class="img-area">
+                            智能温室大棚外观
+                            <img src="./11.9汤阴拍摄（合同，大棚）/种植基地3.JPG" alt="智能温室大棚外观">
+                        </div>
+                        <p>现代化智能温室，配备温控、湿控、光照调节系统</p>
+                    </div>
+                    <div class="gallery-item">
+                        <div class="img-area">
+                            温室内部种植区
+                            <img src="./11.9汤阴拍摄（合同，大棚）/IMG_1573.JPG" alt="温室内部种植区">
+                        </div>
+                        <p>立体栽培架，番茄藤蔓长势旺盛</p>
+                    </div>
+                    <div class="gallery-item">
+                        <div class="img-area">
+                            滴灌系统展示
+                            <img src="./11.9汤阴拍摄（合同，大棚）/IMG_1586.JPG" alt="滴灌系统展示">
+                        </div>
+                        <p>精准滴灌系统，节水节肥效果显著</p>
+                    </div>
+                </div>
+                
+                <!-- 第二行图片 -->
+                <div class="gallery-row">
+                    <div class="gallery-item">
+                        <div class="img-area">
+                            生态种植区
+                            <img src="./11.9汤阴拍摄（合同，大棚）/IMG_1484.JPG" alt="生态种植区">
+                        </div>
+                        <p>露天生态种植区，土壤肥沃，无工业污染</p>
+                    </div>
+                    <div class="gallery-item">
+                        <div class="img-area">
+                            成熟果实展示
+                            <img src="./11.9汤阴拍摄（合同，大棚）/IMG_1547.JPG" alt="成熟果实展示">
+                        </div>
+                        <p>自然成熟的番茄，色泽鲜亮，口感清甜</p>
+                    </div>
+                    <div class="gallery-item">
+                        <div class="img-area">
+                            农场工作人员
+                            <img src="./11.9汤阴拍摄（合同，大棚）/IMG_1549.JPG" alt="农场工作人员">
+                        </div>
+                        <p>专业种植团队，全程精细化管理</p>
+                    </div>
+                </div>
+                
+                <!-- 第三行图片 -->
+                <div class="gallery-row">
+                    <div class="gallery-item">
+                        <div class="img-area">
+                            植物检测
+                            <img src="./11.9汤阴拍摄（合同，大棚）/IMG_1528.JPG" alt="土壤检测">
+                        </div>
+                        <p>定期进行检测，保障种植环境安全</p>
+                    </div>
+                    <div class="gallery-item">
+                        <div class="img-area">
+                            病虫害绿色防控
+                            <img src="./11.9汤阴拍摄（合同，大棚）/IMG_1513.JPG" alt="病虫害绿色防控">
+                        </div>
+                        <p>物理防治+生物防治，拒绝化学农药</p>
+                    </div>
+                    <div class="gallery-item">
+                        <div class="img-area">
+                            采收场景
+                            <img src="./11.9汤阴拍摄（合同，大棚）/IMG_1515.JPG" alt="采收场景">
+                        </div>
+                        <p>成熟度达标后人工采收，保证果实品质</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="farm-intro">
+                <h4>种植状况详细介绍</h4>
+                <ul>
+                    <li><strong>品种选择</strong>：选用自主培育的优质番茄品种，具有抗病性强、口感好、营养价值高的特点</li>
+                    <li><strong>土壤管理</strong>：采用秸秆还田、生物菌肥改良等技术，保持土壤肥力，提升土壤有机质含量</li>
+                    <li><strong>水肥管理</strong>：实施测土配方施肥，采用滴灌系统精准供给水分和养分，避免浪费</li>
+                    <li><strong>病虫害防治</strong>：坚持"预防为主，综合防治"原则，采用防虫网、诱虫板、生物农药等绿色防控措施</li>
+                    <li><strong>生长环境</strong>：温室大棚内温度、湿度、光照等环境因子实时监测调控，为作物生长提供最佳条件</li>
+                    <li><strong>采收标准</strong>：严格按照成熟度、大小、色泽等指标进行分级采收，确保产品质量统一</li>
+                    <li><strong>溯源管理</strong>：每批产品都有唯一溯源码，记录种植、管理、采收、检测等全过程信息</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- 栽培优点页 -->
+        <div id="advantages" class="section">
+            <h2>栽培优点</h2>
+            
+            <div class="grid">
+                <div class="grid-item" style="flex: 100%;">
+                    <h3>鑫麦多番茄 vs 普通番茄</h3>
+                    <div class="text-img-container">
+                        <div class="img-col">
+                            <div class="img-area">
+                                鑫麦多番茄
+                                <img src="./11.9汤阴拍摄（合同，大棚）/IMG_1518.JPG" alt="立体生态栽培">
+                            </div>
+                        </div>
+                        <div class="text-col">
+                            <ul style="font-size: 16px;">
+                                <li><strong>口感更佳</strong>：糖分含量高30%，口感清甜多汁，风味浓郁</li>
+                                <li><strong>营养更足</strong>：维生素C含量提升25%，多种矿物质含量显著高于普通品种</li>
+                                <li><strong>安全放心</strong>：全程无农药残留，通过绿色食品认证</li>
+                                <li><strong>耐储性强</strong>：货架期延长5-7天，品质稳定不易变质</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="grid-item" style="flex: 100%;">
+                    <h3>生态栽培技术</h3>
+                    <div class="text-img-container">
+                        <div class="img-col">
+                            <div class="img-area">
+                                生态栽培技术
+                                <img src="./11.9汤阴拍摄（合同，大棚）/IMG_1549.JPG" alt="生态栽培技术">
+                            </div>
+                        </div>
+                        <div class="text-col">
+                            <ul style="font-size: 16px;">
+                                <li><strong>土壤改良</strong>：生物菌肥替代化学肥料，改良土壤结构，提升土壤活力</li>
+                                <li><strong>绿色防控</strong>：物理防治+生物防治结合，从源头减少农药使用</li>
+                                <li><strong>节水技术</strong>：精准滴灌系统，水资源利用率提升60%，节约宝贵水资源</li>
+                                <li><strong>资源循环</strong>：秸秆还田+沼渣沼液利用，实现农业废弃物资源化</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="grid-item" style="flex: 100%;">
+                    <h3>立体生态栽培优点</h3>
+                    <div class="text-img-container">
+                        <div class="img-col">
+                            <div class="img-area">
+                                立体生态栽培图片
+                                <img src="./11.9汤阴拍摄（合同，大棚）/IMG_1586.JPG" alt="立体生态栽培">
+                            </div>
+                        </div>
+                        <div class="text-col">
+                            <ul style="font-size: 16px;">
+                                <li><strong>空间利用率高</strong>：土地利用率提升200-300%，单位面积产出翻倍</li>
+                                <li><strong>产量提升</strong>：科学密植+精准管理，单位面积产量增加50-80%</li>
+                                <li><strong>资源节约</strong>：节水节肥30-40%，降低生产成本的同时保护环境</li>
+                                <li><strong>生态平衡</strong>：构建"作物-微生物-环境"良性生态循环系统</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="grid-item" style="flex: 100%;">
+                    <h3>科学技术成果展示</h3>
+                    <div class="grid">
+                        <div class="grid-item" style="min-width: 180px;">
+                            <div class="img-area">
+                                品质比较
+                                <img src="./image/品质比较.jpg" alt="品质比较">
+                            </div>
+                        </div>
+                        <div class="grid-item" style="min-width: 180px;">
+                            <div class="img-area">
+                                生态栽培技术
+                                <img src="./image/生态栽培技术.jpg" alt="生态栽培技术">
+                            </div>
+                        </div>
+                        <div class="grid-item" style="min-width: 180px;">
+                            <div class="img-area">
+                                栽培模式优点
+                                <img src="./image/生态栽培技术.jpg" alt="栽培模式优点">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 页脚 -->
+        <div class="footer">
+            <p>鑫麦多农场溯源系统</p>
+            <p>地址：河南省安阳市汤阴县五陵镇</p>
+            <p>专注生态农业 · 保障食品安全 · 追溯全程透明</p>
+            <p class="copyright">© 2025 版权所有 · 保留所有权利</p>
+        </div>
+    </div>
+
+    <!-- 平滑滚动脚本 -->
+    <script>
+        // 平滑滚动
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    window.scrollTo({
+                        top: target.offsetTop - 30,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+
+        // 滚动时的淡入效果
+        const observerOptions = {
+            root: null,
+            rootMargin: '0px',
+            threshold: 0.1
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = 1;
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.section').forEach(section => {
+            section.style.opacity = 0;
+            section.style.transform = 'translateY(20px)';
+            section.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+            observer.observe(section);
+        });
+
+        // 背景图片加载失败降级处理
+        window.addEventListener('load', function() {
+            const body = document.body;
+            // 检查全局背景图是否加载成功
+            const checkBackgroundImage = function(element) {
+                const style = window.getComputedStyle(element);
+                const backgroundImage = style.backgroundImage;
+                if (backgroundImage.includes('url') && !backgroundImage.includes('data:image')) {
+                    // 创建临时图片元素检测加载状态
+                    const img = new Image();
+                    const url = backgroundImage.match(/url\("?([^")]+)"?\)/)[1];
+                    img.src = url;
+                    img.onerror = function() {
+                        // 加载失败时使用纯色背景降级
+                        if (element === body) {
+                            element.style.backgroundImage = 'linear-gradient(180deg, #f5f9f0 0%, #e8f5e9 100%)';
+                        } else {
+                            element.style.backgroundImage = 'linear-gradient(rgba(255, 255, 255, 0.95), rgba(255, 255, 255, 0.95))';
+                        }
+                    };
+                }
+            };
+
+            checkBackgroundImage(body);
+            checkBackgroundImage(document.getElementById('farm-visit'));
+        });
+
+        // 图片加载完成后添加动画
+        document.querySelectorAll('.img-area img').forEach(img => {
+            img.onload = function() {
+                this.style.opacity = 1;
+                this.style.transform = 'scale(1)';
+            }
+        });
+    </script>
+</body>
+</html>
